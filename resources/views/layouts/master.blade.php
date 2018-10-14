@@ -16,6 +16,8 @@
 
     @yield('header')
 
+    @yield('info-header')
+
     @yield('content')
 
     <!-- Javascrips files added here -->

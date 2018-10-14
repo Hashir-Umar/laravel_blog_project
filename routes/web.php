@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('blog.index');
-});
+Route::get('/blog/{post_id?}', [
+    'uses' => 'PostController@getPost',
+    'as' => 'index'
+]);
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
-
+Route::get('/admin', [
+    'uses' => 'AdminController@getIndex',
+    'as' => 'admin'
+]);

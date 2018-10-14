@@ -1,0 +1,13 @@
+html, body {
+    height: 100vh;
+}
+
+.post-card {
+    margin-top: 50px;
+}
+
+.post-container {
+    border-radius: .8rem;
+    border: 1px solid #333;
+    padding: .6rem 1rem;
+}
