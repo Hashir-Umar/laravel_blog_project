@@ -21,7 +21,7 @@
                     <div class="box">
                         <div class="title"> {{ ucfirst($post->title) }} </div>
                         <div class="body"> {{$post->body}} 
-                            <a href=" {{url('blog') . '/' . $post->id }} ">Read More.... </a>
+                            <a href=" {{ route('blog', ['post_id' => $post->id ]) }} ">Read More.... </a>
                         </div>
                         <span class="author"> {{$post->author. ' | ' .$post->created_at}} </span> 
                     </div>

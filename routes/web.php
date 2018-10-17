@@ -26,6 +26,11 @@ Route::post('/admin/createPost', [
     'as' => 'create'
 ]);
 
+Route::post('/admin/deletePost/{post_id?}', [
+    'uses' => 'PostController@deletePost',
+    'as' => 'delete'
+]);
+
 Route::get('/admin/postEditor', [
     'uses' => 'PostController@editPost',
     'as' => 'postEditor'

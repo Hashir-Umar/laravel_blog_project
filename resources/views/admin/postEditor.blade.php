@@ -4,20 +4,26 @@
     Create Post
 @endsection
 
-@include('error')
+@section('header')
+    @include('includes.admin_nav')
+    @include('includes.error')
+@endsection
 
 @section('content')
-    <div class="col-12 text-center">
-        <h1>Create Post</h1>
-    </div>
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-8 mx-auto mt-4">
         <form class="form" action="{{route('create')}}" method="post">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" name="title">
-            <label for="authors">Author:</label>            
-            <input type="text" class="form-control" name="author">
-            <label for="bofy">Post:</label>                        
-            <textarea name="body" class="form-control" cols="30" rows="20"></textarea>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control form-control-sm" name="title" value="">
+            </div>
+            <div class="form-group">
+                <label for="authors">Author:</label>            
+                <input type="text" class="form-control form-control-sm" name="author">
+            </div>
+            <div class="form-group">
+                <label for="bofy">Post:</label>                        
+                <textarea name="body" class="form-control form-control-sm" cols="30" rows="15"></textarea>
+            </div>
             <button class="btn btn-outline-info">Save</button>
             <a href="{{ route('admin') }}" class="btn btn-outline-info" >Cancel</a>
             <input type="hidden" name="_token" value="{{Session::token()}}">

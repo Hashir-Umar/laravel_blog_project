@@ -31,9 +31,9 @@ class PostController extends Controller
 
         //validation
         $this->validate($request, [
-            'title' => 'required|max:40|alpha|unique:posts', 
+            'title' => 'required|max:40|unique:posts', 
             'author' => 'required|max:40|alpha',
-            'body' => 'required|max:500'
+            'body' => 'required|max:2000'
         ]);
 
         $post = new Post();
@@ -43,8 +43,20 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('admin.index')->with([
+        return redirect()->route('admin')->with([
             'success' => 'Post Saved'
+        ]);
+    }
+
+    public function deletePost($post_id) {
+
+        return $post_id;
+        $post = Post::where('id', $post_id)->first();
+
+        $post->delete();
+
+        return redirect()->route('admin')->with([
+            'success' => 'Post Dseleted'
         ]);
     }
 
