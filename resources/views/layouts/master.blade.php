@@ -16,6 +16,8 @@
 
     @yield('header')
 
+    <div class="mb-5"></div>
+
     @yield('info-header')
 
     @yield('content')

@@ -4,20 +4,37 @@
     Blog
 @endsection
 
-@section('header')
-    @include('includes.blog_nav')
+@section('styles')
+    <link rel="stylesheet" type="text/css" media="screen" href=" {{ URL::to('src/css/blog_style.css') }} ">
 @endsection
 
-@section('info-header')  
-    <?php $flag = 1 ?>
-    <?php $msg = '' ?>
-    @include('includes.info_box')
+@section('header')
+    @include('includes.blog_nav')
 @endsection
 
 @section('content')
     @if ($posts)
         @foreach($posts as $post)
-            {{$post}}
+
+            <div class="row m-0 mb-2">
+                <div class="col-md-6 mx-auto">
+                    <div class="box">
+                        <div class="title"> {{ ucfirst($post->title) }} </div>
+                        <div class="body"> {{$post->body}} 
+                            <a href=" {{url('blog') . '/' . $post->id }} ">Read More.... </a>
+                        </div>
+                        <span class="author"> {{$post->author. ' | ' .$post->created_at}} </span> 
+                    </div>
+                </div>
+            </div>
+
         @endforeach
     @endif
+    
+@endsection
+
+@section('javascript')
+    <script>
+        document.querySelectorAll('.nav-link')[0].classList.add("active");
+    </script>
 @endsection

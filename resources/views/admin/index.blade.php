@@ -14,13 +14,19 @@
 
 @endsection
 
+@section('info-header')  
+    <?php $flag = 1 ?>
+    <?php Session::has('success') ? $msg = [Session::get('success')] : $msg = '' ;  ?>
+    @include('includes.info_box')
+@endsection
+
 @section('content')
 
     <div class="col-md-6">
         <div class="post-card">
             <div class="card">
                 <div class="card-header">
-                    <button class="btn btn-sm btn-outline-info">New Post</button>
+                    <a href="{{ route('postEditor')}} " class="btn btn-sm btn-outline-info">New Post</a>
                     <button class="btn btn-sm btn-outline-info">Show all Posts</button>
                 </div>
                 <div class="card-body">

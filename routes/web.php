@@ -20,3 +20,13 @@ Route::get('/admin', [
     'uses' => 'AdminController@getIndex',
     'as' => 'admin'
 ]);
+
+Route::post('/admin/createPost', [
+    'uses' => 'PostController@createPost',
+    'as' => 'create'
+]);
+
+Route::get('/admin/postEditor', [
+    'uses' => 'PostController@editPost',
+    'as' => 'postEditor'
+]);
